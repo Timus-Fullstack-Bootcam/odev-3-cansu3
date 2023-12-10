@@ -3549,6 +3549,28 @@
                       </div>
                     </main>
                   </div>
+                  <div class="swiper-container swiper-slide pointer relative swiper-slide-visible">
+                    <swiper :options="swiperOptions" ref="mySwiper">
+                    <swiper-slide v-for="(slide, index) in slides" :key="index">
+                      <a :href="slide.link" class="swiper-inner relative h-100 d-block">
+                        <img :src="slide.image.desktop" alt="Slide Image" class="w-100 h-100 d-none d-md-block">
+                        <img :src="slide.image.mobile" alt="Slide Image" class="w-100 h-100 d-md-none">
+                      </a>
+                    </swiper-slide>
+
+                    <!-- Navigation Buttons -->
+                    <div class="swiper-button-next d-none d-md-flex shadow-card">
+                      <span class="c-icon-wrapper d-inline-flex vertical-middle normal--text">
+                        <!-- Your next button icon here -->
+                      </span>
+                    </div>
+                    <div class="swiper-button-prev d-none d-md-flex shadow-card">
+                      <span class="c-icon-wrapper d-inline-flex vertical-middle normal--text">
+                        <!-- Your previous button icon here -->
+                      </span>
+                    </div>
+                  </swiper>
+                  </div>
                   <div class="order-3 order-sm-4 order-md-3 py-6 col-md-4 col-12" data-v-290aa1bc="">
                     <div data-fetch-key="data-v-1aa1cc01:0"
                       class="shadow-card d-flex flex-column qr-code mx-auto h-100 v-card v-sheet theme--light"
@@ -7501,3 +7523,54 @@ a {
         }
       }
 </style>
+<script>
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
+
+export default {
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+  data() {
+    return {
+      autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      },
+      slides: [
+      {
+          link: '/kampanyalar/yeni-uyelerimize-ozel-hos-geldin-hediyesi',
+          image: {
+            desktop:
+            "https://biletdukkanilivestorage.blob.core.windows.net/prod-cms/assets/b2c_slider_6f2f1d8f8d.webp",
+            mobile:
+              'https://biletdukkanilivestorage.blob.core.windows.net/prod-cms/assets/B2_C_MOBIL_SLIDER_copy_5184a5df3b.webp',
+          },
+        },
+        {
+          link: '/kampanyalar/yeni-uyelerimize-ozel-hos-geldin-hediyesi',
+          image: {
+            desktop:
+              'https://biletdukkanilivestorage.blob.core.windows.net/prod-cms/assets/B2_C_Web_Slider_copy_b1b269d886.webp',
+            mobile:
+              'https://biletdukkanilivestorage.blob.core.windows.net/prod-cms/assets/B2_C_MOBIL_SLIDER_copy_5184a5df3b.webp',
+          },
+        },
+        {
+          link: '/kampanyalar/yeni-uyelerimize-ozel-hos-geldin-hediyesi',
+          image: {
+            desktop:
+            "https://biletdukkanilivestorage.blob.core.windows.net/prod-cms/assets/b2c_slider_6f2f1d8f8d.webp",
+            mobile:
+              'https://biletdukkanilivestorage.blob.core.windows.net/prod-cms/assets/B2_C_MOBIL_SLIDER_copy_5184a5df3b.webp',
+          },
+        },
+      ],
+    };
+  },
+};
+</script>
